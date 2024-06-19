@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-06-2024 a las 13:04:57
+-- Tiempo de generación: 19-06-2024 a las 23:41:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -34,31 +34,33 @@ CREATE TABLE `productos` (
   `codigo` varchar(255) NOT NULL,
   `descripcion` text NOT NULL,
   `stock` int(11) NOT NULL,
-  `ventas` int(11) NOT NULL
+  `ventas` int(11) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `marca`, `codigo`, `descripcion`, `stock`, `ventas`) VALUES
-(1, 'Martillo mango de madera', 'Stanley', 'Sty-mar-mad', 'Martillo de madera 30cm 1kg', 200, 2),
-(2, 'Alicate', 'Stanley', 'Sty-ali', 'Alicate de 20cm platico azul', 100, 5),
-(3, 'Alicate', 'Stanley', 'Sty-ali', 'Alicate de 20cm platico azul', 100, 5),
-(4, 'Martillo', 'DeWalt', 'Dew-mart', 'Martillo de 500g con mango antideslizante', 150, 20),
-(5, 'Destornillador', 'Bosch', 'Bos-des', 'Destornillador estrella de 15cm', 200, 30),
-(6, 'Llave Inglesa', 'Truper', 'Tru-llave', 'Llave inglesa de 25cm', 120, 15),
-(7, 'Sierra', 'Makita', 'Mak-sierra', 'Sierra manual de 30cm', 80, 10),
-(8, 'Taladro', 'Black & Decker', 'B&D-taladro', 'Taladro eléctrico de 500W', 50, 25),
-(9, 'Cinta Métrica', 'Stanley', 'Sty-cinta', 'Cinta métrica de 5 metros', 300, 50),
-(10, 'Nivel', 'Bosch', 'Bos-nivel', 'Nivel de burbuja de 40cm', 75, 12),
-(11, 'Llave Stilson', 'DeWalt', 'Dew-stilson', 'Llave Stilson de 18 pulgadas', 60, 8),
-(12, 'Tijeras para Chapa', 'Truper', 'Tru-tijeras', 'Tijeras para chapa de 10 pulgadas', 90, 5),
-(13, 'Broca', 'Bosch', 'Bos-broca', 'Broca para concreto de 10mm', 500, 100),
-(14, 'Caja de Herramientas', 'Makita', 'Mak-caja', 'Caja de herramientas de plástico con 20 compartimentos', 40, 7),
-(15, 'Pistola de Silicona', 'Stanley', 'Sty-pistola', 'Pistola de silicona caliente', 110, 20),
-(16, 'Cutter', 'Truper', 'Tru-cutter', 'Cutter de precisión con 10 hojas de repuesto', 180, 45),
-(17, 'Llave Allen', 'Bosch', 'Bos-allen', 'Juego de llaves Allen, 10 piezas', 130, 33);
+INSERT INTO `productos` (`id`, `nombre`, `marca`, `codigo`, `descripcion`, `stock`, `ventas`, `img`, `price`) VALUES
+(1, 'Martillo mango de madera', 'Stanley', 'Sty-mar-mad', 'Martillo de madera 30cm 1kg', 200, 2, '', 2000.00),
+(2, 'Alicate', 'Stanley', 'Sty-ali', 'Alicate de 20cm platico azul', 100, 5, '', 0.00),
+(3, 'Alicate', 'Stanley', 'Sty-ali', 'Alicate de 20cm platico azul', 100, 5, '', 0.00),
+(4, 'Martillo', 'DeWalt', 'Dew-mart', 'Martillo de 500g con mango antideslizante', 150, 20, '', 0.00),
+(5, 'Destornillador', 'Bosch', 'Bos-des', 'Destornillador estrella de 15cm', 200, 30, '', 0.00),
+(6, 'Llave Inglesa', 'Truper', 'Tru-llave', 'Llave inglesa de 25cm', 120, 15, '', 0.00),
+(7, 'Sierra', 'Makita', 'Mak-sierra', 'Sierra manual de 30cm', 80, 10, '', 0.00),
+(8, 'Taladro', 'Black & Decker', 'B&D-taladro', 'Taladro eléctrico de 500W', 50, 25, '', 0.00),
+(9, 'Cinta Métrica', 'Stanley', 'Sty-cinta', 'Cinta métrica de 5 metros', 300, 50, '', 0.00),
+(10, 'Nivel', 'Bosch', 'Bos-nivel', 'Nivel de burbuja de 40cm', 75, 12, '', 0.00),
+(11, 'Llave Stilson', 'DeWalt', 'Dew-stilson', 'Llave Stilson de 18 pulgadas', 60, 8, '', 0.00),
+(12, 'Tijeras para Chapa', 'Truper', 'Tru-tijeras', 'Tijeras para chapa de 10 pulgadas', 90, 5, '', 0.00),
+(13, 'Broca', 'Bosch', 'Bos-broca', 'Broca para concreto de 10mm', 500, 100, '', 0.00),
+(14, 'Caja de Herramientas', 'Makita', 'Mak-caja', 'Caja de herramientas de plástico con 20 compartimentos', 40, 7, '', 0.00),
+(15, 'Pistola de Silicona', 'Stanley', 'Sty-pistola', 'Pistola de silicona caliente', 110, 20, '', 0.00),
+(16, 'Cutter', 'Truper', 'Tru-cutter', 'Cutter de precisión con 10 hojas de repuesto', 180, 45, '', 0.00),
+(17, 'Llave Allen', 'Bosch', 'Bos-allen', 'Juego de llaves Allen, 10 piezas', 130, 33, '', 0.00);
 
 --
 -- Índices para tablas volcadas

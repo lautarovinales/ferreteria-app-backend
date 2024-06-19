@@ -37,6 +37,19 @@ app.get('/api/productos', (req, res) => {
   });
 });
 
+app.get('/api/productos/:codigo', (req, res) => {
+  const { codigo } = req.params;
+  db.query('SELECT * FROM productos WHERE codigo = ?', [codigo], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+    res.json(results[0]);
+  });
+});
+
 app.post('/api/productos', (req, res) => {
   const { nombre, marca, codigo, descripcion, stock, ventas } = req.body;
   const query = 'INSERT INTO productos (nombre, marca, codigo, descripcion, stock, ventas) VALUES (?, ?, ?, ?, ?, ?)';
